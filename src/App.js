@@ -11,6 +11,7 @@ import {
 } from "./components/ModalWindows/ModalWindow";
 import { Form } from "./components/Forms";
 import { useState } from "react";
+import { Post } from "./components/Posts/Post";
 
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -78,6 +79,13 @@ function App() {
 					}}
 				/>
 			</div>
+			<Post
+				title={"TO THE FLOWERS"}
+				text={
+					"Bright little day stars,                             Scattered all over the earth,                              Ye drape the house of mourning,                          And ye deck the hall of mirth.                             Ye are gathered to grace the ballroom,                    Ye are borne to the house of prayer,                      Ye wither upon the snowy shroud,                          Ye fade in the bride’s jeweled hair.                      Ye are relics of bygone ages,                           From Eden inherited,                                      To gladden the homes of the living,And mourn on the graves of the dead."
+				}
+				img={"./images/flower.svg"}
+			/>
 			<ModalWindow onClose={() => setIsVisible(false)} isVisible={isVisible}>
 				<p>Title</p>
 				<>
