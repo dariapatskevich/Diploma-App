@@ -9,15 +9,8 @@ import {
 	ModalWindowAudio,
 	ModalWindowVideo,
 } from "./components/ModalWindows/ModalWindow";
-import { Posts } from "./components/Posts/Posts";
 import { Form } from "./components/Forms";
 import { useState } from "react";
-
-function onClickAdd(post) {
-	const newPost = [...this.state.posts, post];
-
-	this.setState({ posts: newPost });
-}
 
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -95,42 +88,40 @@ function App() {
 					<Form />
 				</>
 
-				<button onClick={onClickAdd}>publish a story</button>
+				<button>publish a story</button>
 			</ModalWindow>
 			<ModalWindowPhoto onClose={() => setIsShown(false)} isShown={isShown}>
 				<></>
-				<button onClick={onClickAdd}>publish a photo</button>
+				<button>publish a photo</button>
 			</ModalWindowPhoto>
 			<ModalWindowQuota onClose={() => setIsOn(false)} isOn={isOn}>
 				<p>"Quotation"</p>
 				<>
 					<Form />
 				</>
-				<button onClick={onClickAdd}>publish a quotation</button>
+				<button>publish a quotation</button>
 			</ModalWindowQuota>
 			<ModalWindowLink
 				onClose={() => setIsVisibleLink(false)}
 				isVisibleLink={isVisibleLink}
 			>
 				<></>
-				<button onClick={onClickAdd}>publish a link</button>
+				<button>publish a link</button>
 			</ModalWindowLink>
 			<ModalWindowAudio
 				onClose={() => setIsVisibleAudio(false)}
 				isVisibleAudio={isVisibleAudio}
-				onClick={onClickAdd}
 			>
 				<></>
-				<button onClick={onClickAdd}>publish an audio</button>
+				<button>publish an audio</button>
 			</ModalWindowAudio>
 			<ModalWindowVideo
 				onClose={() => setIsVisibleVideo(false)}
 				isVisibleVideo={isVisibleVideo}
 			>
 				<></>
-				<button onClick={onClickAdd}>publish a video</button>
+				<button>publish a video</button>
 			</ModalWindowVideo>
-			<Posts />
 		</div>
 	);
 }

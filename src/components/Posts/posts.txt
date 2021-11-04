@@ -1,0 +1,34 @@
+export class Posts extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			posts: [],
+		};
+	}
+
+	onClickAdd = (post) => {
+		const newPost = [...this.state.posts, post];
+
+		this.setState({ posts: newPost });
+	};
+
+	render() {
+		return (
+			<div>
+				<div className={styles.container}>
+					<ModalWindow onClick={this.onClickAdd} />
+				</div>
+				{this.state.posts.map((item) => {
+					return (
+						<div className={styles.app}>
+							<div className={styles.posts} key={item.id}>
+								<p className={styles.text}>{item.text}</p>
+							</div>
+						</div>
+					);
+				})}
+			</div>
+		);
+	}
+}
