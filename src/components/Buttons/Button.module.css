@@ -1,0 +1,55 @@
+.app_header {
+	background-color: #7584ad;
+	font-family: "Zen Antique Soft", serif;
+	font-size: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	justify-content: center;
+	width: 100%;
+	box-sizing: content-box;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0 auto;
+	justify-content: space-around;
+	border: 1px solid grey;
+	background-color: #efefef;
+	box-sizing: content-box;
+	width: 100%;
+	border: none;
+}
+.text {
+	width: 50px;
+	height: 50px;
+}
+
+.photo {
+	width: 50px;
+	height: 50px;
+}
+
+.quota {
+	width: 50px;
+	height: 50px;
+}
+.link {
+	width: 50px;
+	height: 50px;
+}
+.audio {
+	width: 50px;
+	height: 50px;
+}
+.video {
+	width: 50px;
+	height: 50px;
+}
+img {
+	width: 50px;
+	height: 50px;
+	border: none;
+}
