@@ -1,8 +1,1 @@
-export {
-	ModalWindow,
-	ModalWindowPhoto,
-	ModalWindowQuota,
-	ModalWindowLink,
-	ModalWindowAudio,
-	ModalWindowVideo,
-} from "./ModalWindow";
+export { ModalWindow } from "./ModalWindow";
