@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 export class Button extends React.Component {
 	render() {

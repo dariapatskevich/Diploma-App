@@ -3,11 +3,11 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { generateId } from "./helpers";
 
-export const AudioForm = ({ onClickAdd, closeForm }) => {
+export const LinkForm = ({ onClickAdd, closeForm }) => {
 	const [src, setSrc] = useState("");
 
-	const publishAudio = () => {
-		onClickAdd({ audioLink: src, id: generateId() });
+	const publishLink = () => {
+		onClickAdd({ webLink: src, id: generateId() });
 		closeForm();
 	};
 
@@ -17,10 +17,10 @@ export const AudioForm = ({ onClickAdd, closeForm }) => {
 
 	return (
 		<div>
-			{src ? <audio src={src} controls /> : null}
+			{src ? <a src={src} controls /> : null}
 			<input value={src} onChange={onChangeInput} />
 
-			<button onClick={publishAudio}>publish an audio</button>
+			<button onClick={publishLink}>publish a link</button>
 		</div>
 	);
 };
