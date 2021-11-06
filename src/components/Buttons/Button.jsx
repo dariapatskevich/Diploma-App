@@ -2,7 +2,7 @@ import React from "react";
 
 export class Button extends React.Component {
 	render() {
-		const { text, onClick, className, img } = this.props;
+		const { text, onClick, className, img, deletePost } = this.props;
 		return (
 			<div>
 				<button onClick={onClick}>

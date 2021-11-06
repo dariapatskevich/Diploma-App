@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 import { Button } from "./components/Buttons/Button";
@@ -26,11 +26,20 @@ function App() {
 	const [isVisibleAudio, setIsVisibleAudio] = useState(false);
 	const [isVisibleVideo, setIsVisibleVideo] = useState(false);
 
-	const [posts, setPosts] = useState(defaultPosts);
+	const [posts, setPosts] = useState([]);
 
 	const addPost = (post) => {
+		localStorage.setItem("data", JSON.stringify([...posts, post]));
 		setPosts([...posts, post]);
 	};
+
+	useEffect(() => {
+		const a = localStorage.getItem("data");
+		console.log(a);
+		const dataParsed = a ? JSON.parse(a) : [];
+		console.log(dataParsed);
+		setPosts(dataParsed);
+	}, []);
 
 	return (
 		<div className={styles.app}>
@@ -96,6 +105,7 @@ function App() {
 					audioLink={item.audioLink}
 					author={item.author}
 					webLink={item.webLink}
+					key={item.id}
 				></Post>
 			))}
 			<ModalWindow onClose={() => setIsVisible(false)} isVisible={isVisible}>
