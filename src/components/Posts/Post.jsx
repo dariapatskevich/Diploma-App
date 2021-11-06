@@ -23,11 +23,22 @@ export function Post({
 					width="420"
 					height="345"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					className={styles.post_video}
 				></iframe>
 			) : null}
-			{audioLink ? <audio controls src={audioLink}></audio> : null}
+			{audioLink ? (
+				<audio controls src={audioLink} className={styles.post_audio}></audio>
+			) : null}
 			{author ? <p className={styles.post_author}>{author}</p> : null}
-			{webLink ? <iframe src={webLink} width="420" height="345" /> : null}
+			{webLink ? (
+				<iframe
+					src={webLink}
+					width="420"
+					height="345"
+					className={styles.post_link}
+				/>
+			) : null}
+
 			<div className={styles.post_buttons}>
 				<Counter />
 				<Button

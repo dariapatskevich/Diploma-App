@@ -16,8 +16,6 @@ import {
 	QuotaForm,
 } from "./components/Forms";
 
-import defaultPosts from "./posts.json";
-
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [isShown, setIsShown] = useState(false);
@@ -34,23 +32,26 @@ function App() {
 	};
 
 	useEffect(() => {
-		const a = localStorage.getItem("data");
-		console.log(a);
-		const dataParsed = a ? JSON.parse(a) : [];
-		console.log(dataParsed);
+		const toLocalStorage = localStorage.getItem("data");
+		const dataParsed = toLocalStorage ? JSON.parse(toLocalStorage) : [];
 		setPosts(dataParsed);
 	}, []);
 
 	return (
 		<div className={styles.app}>
 			<div className={styles.app_header}>
-				<h1>STAY INFORMED</h1>
+				<h1>STAYINFORMED</h1>
+			</div>
+			<div className={styles.paragraph}>
+				<p>You can always be informed with the help of my React-app.</p>
+			</div>
+			<div className={styles.paragraph_by}>
+				<p>Made by Patskevich Darya.</p>
 			</div>
 			<div className={styles.buttons}>
 				<Button
 					className={styles.text}
 					img={"./images/text.svg"}
-					text={"Text"}
 					onClick={() => {
 						setIsVisible(true);
 					}}
@@ -58,7 +59,6 @@ function App() {
 				<Button
 					className={styles.photo}
 					img={"./images/photo.svg"}
-					text={"Photo"}
 					onClick={() => {
 						setIsShown(true);
 					}}
@@ -66,7 +66,6 @@ function App() {
 				<Button
 					className={styles.quota}
 					img={"./images/quota.svg"}
-					text={"Quota"}
 					onClick={() => {
 						setIsOn(true);
 					}}
@@ -74,7 +73,6 @@ function App() {
 				<Button
 					className={styles.link}
 					img={"./images/link.svg"}
-					text={"Link"}
 					onClick={() => {
 						setIsVisibleLink(true);
 					}}
@@ -82,7 +80,6 @@ function App() {
 				<Button
 					className={styles.audio}
 					img={"./images/audio.svg"}
-					text={"Audio"}
 					onClick={() => {
 						setIsVisibleAudio(true);
 					}}
@@ -90,24 +87,25 @@ function App() {
 				<Button
 					className={styles.video}
 					img={"./images/video.svg"}
-					text={"Video"}
 					onClick={() => {
 						setIsVisibleVideo(true);
 					}}
 				/>
 			</div>
-			{posts.map((item) => (
-				<Post
-					text={item.text}
-					title={item.title}
-					img={item.img}
-					videoLink={item.videoLink}
-					audioLink={item.audioLink}
-					author={item.author}
-					webLink={item.webLink}
-					key={item.id}
-				></Post>
-			))}
+			<div className={styles.posts}>
+				{posts.map((item) => (
+					<Post
+						text={item.text}
+						title={item.title}
+						img={item.img}
+						videoLink={item.videoLink}
+						audioLink={item.audioLink}
+						author={item.author}
+						webLink={item.webLink}
+						key={item.id}
+					></Post>
+				))}
+			</div>
 			<ModalWindow onClose={() => setIsVisible(false)} isVisible={isVisible}>
 				<StoryForm onClickAdd={addPost} closeForm={() => setIsVisible(false)} />
 			</ModalWindow>
