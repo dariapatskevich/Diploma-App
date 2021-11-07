@@ -70,3 +70,8 @@ img {
 	font-size: 100%;
 	margin-right: 50px;
 }
+.data {
+	display: flex;
+	justify-content: start;
+	margin-top: 20px;
+}

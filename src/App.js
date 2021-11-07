@@ -15,6 +15,7 @@ import {
 	LinkForm,
 	QuotaForm,
 } from "./components/Forms";
+import DataComponent from "./Data/DataComponent";
 
 function App() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -47,6 +48,9 @@ function App() {
 			</div>
 			<div className={styles.paragraph_by}>
 				<p>Made by Patskevich Darya.</p>
+			</div>
+			<div className={styles.data}>
+				<DataComponent data={new Date()} />
 			</div>
 			<div className={styles.buttons}>
 				<Button
@@ -92,6 +96,7 @@ function App() {
 					}}
 				/>
 			</div>
+
 			<div className={styles.posts}>
 				{posts.map((item) => (
 					<Post
