@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { generateId } from "./helpers";
 
-export const PhotoForm = ({ onClickAdd, closeForm }) => {
+export const PhotoForm = ({ onClickAdd, closeForm, className }) => {
 	const [src, setSrc] = useState("");
 
 	const publishImg = () => {
@@ -25,7 +25,9 @@ export const PhotoForm = ({ onClickAdd, closeForm }) => {
 					setSrc(URL.createObjectURL(event.target.files[0]));
 				}}
 			/>
-			<button onClick={publishImg}>publish a photo</button>
+			<button className={styles.publish} onClick={publishImg}>
+				publish a photo
+			</button>
 		</div>
 	);
 };

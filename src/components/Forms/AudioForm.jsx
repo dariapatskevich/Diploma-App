@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { generateId } from "./helpers";
 
-export const AudioForm = ({ onClickAdd, closeForm }) => {
+export const AudioForm = ({ onClickAdd, closeForm, className }) => {
 	const [src, setSrc] = useState("");
 
 	const publishAudio = () => {
@@ -20,7 +20,9 @@ export const AudioForm = ({ onClickAdd, closeForm }) => {
 			{src ? <audio src={src} controls /> : null}
 			<input value={src} onChange={onChangeInput} />
 
-			<button onClick={publishAudio}>publish an audio</button>
+			<button className={styles.publish} onClick={publishAudio}>
+				publish an audio
+			</button>
 		</div>
 	);
 };

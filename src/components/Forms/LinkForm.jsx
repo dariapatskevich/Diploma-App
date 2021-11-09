@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { generateId } from "./helpers";
 
-export const LinkForm = ({ onClickAdd, closeForm }) => {
+export const LinkForm = ({ onClickAdd, closeForm, className }) => {
 	const [src, setSrc] = useState("");
 
 	const publishLink = () => {
@@ -19,8 +19,11 @@ export const LinkForm = ({ onClickAdd, closeForm }) => {
 		<div>
 			{src ? <a src={src} controls /> : null}
 			<input value={src} onChange={onChangeInput} />
-
-			<button onClick={publishLink}>publish a link</button>
+			<div className={styles.content}>
+				<button className={styles.publish} onClick={publishLink}>
+					publish a link
+				</button>
+			</div>
 		</div>
 	);
 };

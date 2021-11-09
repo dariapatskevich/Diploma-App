@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import { generateId } from "./helpers";
 
-export function QuotaForm({ onClickAdd, closeForm }) {
+export function QuotaForm({ onClickAdd, closeForm, className }) {
 	const [author, setAuthor] = useState("");
 	const [text, setText] = useState("");
 
@@ -26,7 +26,9 @@ export function QuotaForm({ onClickAdd, closeForm }) {
 			<input type="text" value={text} onChange={onTextChange} />
 			<p>Author</p>
 			<input type="text" value={author} onChange={onAuthorChange} />
-			<button onClick={publishQuota}>publish the quotation</button>
+			<button className={styles.publish} onClick={publishQuota}>
+				publish the quotation
+			</button>
 		</div>
 	);
 }
